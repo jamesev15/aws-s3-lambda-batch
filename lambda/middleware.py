@@ -10,15 +10,15 @@ class S3Event(Enum):
     OBJECT_CREATED = "ObjectCreated:Put"
 
 
-def get_s3_bucket(event) -> str:
+def get_s3_bucket(event: dict) -> str:
     return event["Records"][0]["s3"]["bucket"]["name"]
 
 
-def get_s3_key(event) -> str:
+def get_s3_key(event: dict) -> str:
     return event["Records"][0]["s3"]["object"]["key"]
 
 
-def get_s3_event_name(event) -> str:
+def get_s3_event_name(event: dict) -> str:
     return event["Records"][0]["eventName"]
 
 
